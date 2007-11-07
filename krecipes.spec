@@ -11,7 +11,7 @@ Release:	0.1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	ca9b761045cac9aeccdf1b941a310996
+# Source0-md5:	7414fd5210561801ba04ee3dad6561d9
 URL:		http://krecipes.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
