@@ -1,16 +1,17 @@
-
-%bcond_without	sqlite		# without sqlite support
-%bcond_with	mysql		# with mysql support
-%bcond_with	postgresql	# with postgresql support
-
+#
+# Conditional build:
+%bcond_without	sqlite		# without SQLite support
+%bcond_with	mysql		# with MySQL support
+%bcond_with	postgresql	# with PostgreSQL support
+#
 Summary:	KDE Recipe Tool
-Summary(pl.UTF-8):	Zarządzaj przepisami w KDE
+Summary(pl.UTF-8):	Zarządzanie przepisami w KDE
 Name:		krecipes
 Version:	0.9.1
 Release:	0.1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/krecipes/%{name}-%{version}.tar.gz
 # Source0-md5:	7414fd5210561801ba04ee3dad6561d9
 URL:		http://krecipes.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -19,11 +20,26 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 The goal of this projects was to create a KDE Recipe Tool that:
  - Can manage a recipe database with an easy to use interface
  - Allows creation/removal of new ingredients and units
- - Helps with diets, calculating amount of calories, vitamines, carbohydrates... per recipe
+ - Helps with diets, calculating amount of calories, vitamines,
+   carbohydrates... per recipe
  - Creates shopping lists, and daily suggestions for a given diet type
- - Is based on MySQL (1) so it could be possible to generate a KSN(2)
- - Should be as flexible as possible to have the possibility to extend it in future.
-                        
+ - Is based on MySQL so it could be possible to generate a KSN
+ - Should be as flexible as possible to have the possibility to extend
+   it in future.
+
+%description -l pl.UTF-8
+Celem tego projektu było stworzenie programu KDE do przepisów, który:
+ - potrafi zarządzać bazą danych przepisów z łatwym w użyciu
+   interfejsem
+ - pozwala tworzyć i usuwać nowe składniki i jednostki
+ - pomaga przy dietach, obliczaniu ilości kalorii, witamin,
+   węglowodanów itp. dla każdego przepisu
+ - tworzy listy zakupów i codzienne sugestie dla zadanego rodzaju
+   diety
+ - jest oparty na MySQL-u, dzięki czmu można generować KSN
+ - powinien być elastyczny i mieć możliwość rozszerzania w
+   przyszłości.
+
 %prep
 %setup -q
 
