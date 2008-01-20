@@ -9,11 +9,15 @@ Summary(pl.UTF-8):	Zarządzanie przepisami w KDE
 Name:		krecipes
 Version:	0.9.1
 Release:	0.1
-License:	GPL v2
+License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/krecipes/%{name}-%{version}.tar.gz
 # Source0-md5:	7414fd5210561801ba04ee3dad6561d9
 URL:		http://krecipes.sourceforge.net/
+BuildRequires:	kdelibs-devel >= 3.1
+%{?with_mysql:BuildRequires:	mysql-devel}
+%{?with_postgresql:BuildRequires:	postgresql-devel}
+%{?with_sqlite:BuildRequires:	sqlite3-devel >= 3}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
