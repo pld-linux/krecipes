@@ -1,8 +1,8 @@
 #
 # Conditional build:
-%bcond_without	sqlite		# without SQLite support
-%bcond_with	mysql		# with MySQL support
-%bcond_with	postgresql	# with PostgreSQL support
+%bcond_without	sqlite	# SQLite support
+%bcond_with	mysql	# MySQL support
+%bcond_with	pgsql	# PostgreSQL support
 #
 Summary:	KDE Recipe Tool
 Summary(pl.UTF-8):	Zarządzanie przepisami w KDE
@@ -11,12 +11,12 @@ Version:	0.9.1
 Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/krecipes/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/krecipes/%{name}-%{version}.tar.gz
 # Source0-md5:	7414fd5210561801ba04ee3dad6561d9
 URL:		http://krecipes.sourceforge.net/
 BuildRequires:	kdelibs-devel >= 3.1
 %{?with_mysql:BuildRequires:	mysql-devel}
-%{?with_postgresql:BuildRequires:	postgresql-devel}
+%{?with_pgsql:BuildRequires:	postgresql-devel}
 %{?with_sqlite:BuildRequires:	sqlite3-devel >= 3}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -52,7 +52,7 @@ Celem tego projektu było stworzenie programu KDE do przepisów, który:
 	--enable-pch \
 	--with%{!?with_sqlite:out}-sqlite \
 	--with%{!?with_mysql:out}-mysql \
-	--with%{!?with_postgresql:out}-postgresql \
+	--with%{!?with_pgsql:out}-postgresql \
 
 %{__make}
 
@@ -65,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 	k3bsetup2dir=%{_desktopdir}/kde \
 	kde_htmldir=%{_kdedocdir}
 
-mv $RPM_BUILD_ROOT%{_datadir}/applnk/Utilities $RPM_BUILD_ROOT%{_datadir}/applnk/.hidden
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/applnk/Utilities $RPM_BUILD_ROOT%{_datadir}/applnk/.hidden
 
 %find_lang %{name} --all-name --with-kde
 
